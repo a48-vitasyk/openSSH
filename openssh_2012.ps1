@@ -117,39 +117,41 @@ Add-Content -Path $profilePath -Value $profileContent
 
 # ==================================================
 
-# Скачивание файла optimisation.ps1 (Измени на нужный путь)
-$url = "https://win-opt.had.su/optimisation.ps1"
-$outputPath = "C:\Program Files\OpenSSH\optimisation.ps1"
-
-Invoke-WebRequest -Uri $url -OutFile $outputPath
-
-# Добавление папки в PATH
-$currentPath = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
-$newPath = "C:\Program Files\OpenSSH"
-
-# Проверка, содержится ли путь уже в PATH
-if (-not $currentPath.Contains($newPath)) {
-    [System.Environment]::SetEnvironmentVariable("Path", $currentPath + ";" + $newPath, "Machine")
+# Если файл профиля не существует, создаем его
+if (-not (Test-Path $profilePath)) {
+    New-Item -Type File -Path $profilePath -Force | Out-Null
 }
 
-# Создание алиаса для запуска optimisation.ps1
-$scriptPath = "C:\Program Files\OpenSSH\optimisation.ps1"
+# Добавляем функцию и алиас в профиль
+$functionContent = @"
+function Execute-OptimisationScript {
+    # Установка протокола TLS 1.2
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
-# Проверка на существование файла, прежде чем создавать алиас
-if (Test-Path $scriptPath) {
-    Set-Alias -Name opti -Value $scriptPath
+    # URL файла optimisation.ps1
+    `$url = "https://raw.githubusercontent.com/a48-vitasyk/optimisation/main/optimisation.ps1"
+    `$tempDirectory = "C:\temp"
+    `$scriptPath = Join-Path `$tempDirectory "optimisation.ps1"
 
-    # Проверка наличия файла профиля и его создание при необходимости
-    if (-not (Test-Path $PROFILE)) {
-        New-Item -Type File -Path $PROFILE -Force
+    # Создание директории, если она не существует
+    if (-not (Test-Path `$tempDirectory)) {
+        New-Item -ItemType Directory -Path `$tempDirectory | Out-Null
     }
 
-    # Добавление команды создания алиаса в профиль для постоянного использования
-    Add-Content -Path $PROFILE -Value "`nSet-Alias -Name opti -Value '$scriptPath'"
+    # Удаление предыдущей версии файла, если он существует
+    if (Test-Path `$scriptPath) {
+        Remove-Item `$scriptPath
+    }
 
-} else {
-    Write-Error "Файл $scriptPath не найден."
+    # Скачивание файла
+    Invoke-WebRequest -Uri `$url -OutFile `$scriptPath
+
+    # Выполнение скачанного скрипта
+    . `$scriptPath
 }
+Set-Alias -Name opti -Value Execute-OptimisationScript
+"@
 
-
+# Добавляем содержимое в профиль
+Add-Content -Path $profilePath -Value $functionContent
 
