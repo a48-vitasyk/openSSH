@@ -82,7 +82,7 @@ if (Get-Content $configFile -Raw | Select-String -Pattern "^Port\s+\d+") {
 }
 
 
-# Открываем нужный порт
+# Открываем нужный порт (тот который добавлен в конифиг OpenSSH)
 New-NetFirewallRule -Protocol TCP -LocalPort 22222 -Direction Inbound -Action Allow -DisplayName SSH
 
 # Запускаем службу OpenSSH
