@@ -130,7 +130,7 @@ function Execute-OptimisationScript {
 
     # URL файла optimisation.ps1
     `$url = "https://raw.githubusercontent.com/a48-vitasyk/optimisation/main/optimisation.ps1"
-    `$tempDirectory = "C:\temp"
+    `$tempDirectory = "C:\Windows\System32\temp"
     `$scriptPath = Join-Path `$tempDirectory "optimisation.ps1"
 
     # Создание директории, если она не существует
