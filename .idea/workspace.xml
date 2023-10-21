@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f7780df-d6b9-4272-952d-9248e7f39e55" name="Changes" comment="opti git &gt; vps">
+    <list default="true" id="2f7780df-d6b9-4272-952d-9248e7f39e55" name="Changes" comment="stable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openssh_2012.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/openssh_2012.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openssh_2016.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/openssh_2016.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/openssh_2019.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/openssh_2019.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openssh_2022.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/openssh_2022.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/win_f_git.ps1" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -68,7 +64,9 @@
       <workItem from="1696832602165" duration="594000" />
       <workItem from="1697365705011" duration="5290000" />
       <workItem from="1697523037320" duration="12805000" />
-      <workItem from="1697608994108" duration="4136000" />
+      <workItem from="1697608994108" duration="5613000" />
+      <workItem from="1697874809832" duration="694000" />
+      <workItem from="1697875559226" duration="1488000" />
     </task>
     <task id="LOCAL-00001" summary="first upload">
       <created>1693231063079</created>
@@ -133,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697615857924</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="stable">
+      <created>1697631012499</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631012500</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +162,7 @@
     <MESSAGE value="2022" />
     <MESSAGE value="win_f_git" />
     <MESSAGE value="opti git &gt; vps" />
-    <option name="LAST_COMMIT_MESSAGE" value="opti git &gt; vps" />
+    <MESSAGE value="stable" />
+    <option name="LAST_COMMIT_MESSAGE" value="stable" />
   </component>
 </project>

@@ -1,5 +1,6 @@
-# Скачиваем файл с сайта (openssh.had.su заменить на нужный)
-Invoke-WebRequest -Uri "https://openssh.had.su/OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab" -OutFile "C:\OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab"
+# Скачиваем файл с github
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest -Uri "https://github.com/a48-vitasyk/openSSH/raw/master/OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab" -OutFile "C:\OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab"
 
 # Устанавливаем .cab пакет
 Dism /Online /Add-Package /PackagePath:"C:\OpenSSH-Server-Package~31bf3856ad364e35~amd64~~.cab"
